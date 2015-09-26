@@ -95,15 +95,3 @@ function play(delay, pitch, duration) {
 }
 
 
-function playOld(delay, pitch, duration) {
-  var startTime = audioContext.currentTime + delay
-  var endTime = startTime + duration
-  var oscillator = audioContext.createOscillator()
-  oscillator.connect(audioContext.destination)
-  
-  oscillator.detune.value = pitch * 100;
-
-  oscillator.start(startTime)
-  oscillator.stop(endTime)
-  
-}
