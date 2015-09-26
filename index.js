@@ -68,6 +68,9 @@ function playCanon() {
 		console.log(violinPitch);
 		play(offset + i*m/2 , violinPitch, m/2);
 	}
+
+	play(offset*2, scale.highd - 12, m*2)	
+	play(offset*2, scale.highd, m*2)
 }
 
 
