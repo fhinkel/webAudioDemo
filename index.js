@@ -1,4 +1,5 @@
 
+
 var audioContext;
 
 if('webkitAudioContext' in window) {
@@ -8,10 +9,11 @@ if('webkitAudioContext' in window) {
 
 }
 
-playCanon();
+var x = document.getElementById("playButton");
+x.addEventListener("click", function() {
+	playCanon();
 
-
-
+});
 
 
 function playCanon() {
@@ -31,16 +33,13 @@ function playCanon() {
 		higha: 12
 	};
 
-
-
-
 	var pachelbelCello = ['highd','a','h','fis','g','d','g','a'];
 
 	var pachelbelViolin = [
 	 	"d", "fis", "a", "g", "fis", "d", "fis", "e", 
 	 	"d", "lowh", "d", "a", "g", "h", "a", "g", 
 	 	"fis", "d", "e", "cis", "highd", "highfis", "higha", "a",
-	 	"h", "g", "a", "fis", "d", "highd", "higd", "cis"
+	 	"h", "g", "a", "fis", "d", "highd", "highd", "cis"
 	]
 
 	var m = 0.5;
