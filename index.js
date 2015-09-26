@@ -1,4 +1,12 @@
-var audioContext = new AudioContext()
+
+var audioContext;
+
+if('webkitAudioContext' in window) {
+    audioContext = new webkitAudioContext();
+} else {
+	audioContext = new AudioContext()
+
+}
 
 
 var scale = {
