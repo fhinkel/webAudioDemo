@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/fhinkel/webAudioDemo.png?branch=master)](https://travis-ci.org/fhinkel/webAudioDemo)
 
 
-Hello Pachelbel's canon in D is the new hello world for web audio.
+# Pachelbel's canon in D with web audio.
+
+Play the Demo [here](http://fhinkel.github.io/webAudioDemo/)
+
