@@ -2,30 +2,59 @@ var audioContext = new AudioContext()
 
 
 var scale = {
-lowd:-7, 
- e: -5, 
- f: -4,
- fis: -3,
- g: -2,
- a: 0,
- h: 2,
- c: 3, 
- d: 5
+	lowh: -10,
+	d:-7, 
+	e: -5, 
+	f: -4,
+	fis: -3,
+	g: -2,
+	a: 0,
+	h: 2,
+	c: 3, 
+	cis: 4,
+	highd: 5,
+	highfis: 9,
+	higha: 12
  };
 
 
 
-var pachelbel = ['d','a','h','fis','g','lowd','g','a'];
+
+var pachelbelCello = ['highd','a','h','fis','g','d','g','a'];
+
+ var pachelbelViolin = [
+ 	"d", "fis", "a", "g", "fis", "d", "fis", "e", 
+ 	"d", "lowh", "d", "a", "g", "h", "a", "g", 
+ 	"fis", "d", "e", "cis", "highd", "highfis", "higha", "a",
+ 	"h", "g", "a", "fis", "d", "highd", "higd", "cis"
+ ]
 
 var m = 0.5;
 
-for (var i = 0; i <  pachelbel.length; i++) {
-	var tune = pachelbel[i];
+for (var i = 0; i <  pachelbelCello.length; i++) {
+	var tune = pachelbelCello[i];
 	console.log(tune);
-	pitch = scale[tune];
-	console.log(pitch)
-	play(i, pitch, m)
+	celloPitch = scale[tune] - 12;
+	console.log(celloPitch)
+	play(i, celloPitch, m)
 }
+
+for (var i = 0; i <  pachelbelCello.length; i++) {
+	var tune = pachelbelCello[i];
+	console.log(tune);
+	celloPitch = scale[tune] - 12;
+	console.log(celloPitch)
+	play( 8 + i, celloPitch, m)
+}
+
+for (var i = 0; i < pachelbelViolin.length; i++) {
+	var tune = pachelbelViolin[i];
+	console.log(tune);
+	violinPitch = scale[tune];
+	console.log(violinPitch);
+	play(8 + i*m/2 , violinPitch, m/2);
+}
+
 
 function play(delay, pitch, duration) {
   var startTime = audioContext.currentTime + delay
@@ -64,15 +93,9 @@ function playOld(delay, pitch, duration) {
   var oscillator = audioContext.createOscillator()
   oscillator.connect(audioContext.destination)
   
-
-    oscillator.detune.value = pitch * 100;
-  //oscillator.frequency.value = 440 * Math.pow(2, pitch/ 12)
-
+  oscillator.detune.value = pitch * 100;
 
   oscillator.start(startTime)
   oscillator.stop(endTime)
   
-  
-
-
 }
