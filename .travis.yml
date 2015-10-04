@@ -29,7 +29,7 @@ env:
         # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
         # and deploy the output to your project's gh-pages branch.
 
-after_success:
+script:
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
     - git submodule add -b gh-pages https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
     - cd site
