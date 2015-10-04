@@ -30,6 +30,7 @@ env:
         # and deploy the output to your project's gh-pages branch.
 
 script:
+    - git add -f .
     - git config user.email "franziska.hinkelmann@gmail.com"
     - git config user.name "Franziska Hinkelmann"
     - git commit -am "Deploy to gh-pages [ci skip]"
